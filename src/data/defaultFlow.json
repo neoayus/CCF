@@ -1,0 +1,662 @@
+{
+  "nodes": [
+    {
+      "id": "root",
+      "type": "conversation",
+      "position": {
+        "x": -34.959213186973386,
+        "y": 91.28196520391921
+      },
+      "data": {
+        "title": "Opening",
+        "question": "",
+        "script": "Hi, am I speaking with Dr. X?",
+        "end": false,
+        "outcomes": [
+          {
+            "id": "outcome-a4675046-e554-4066-86dc-5eff23de6eef",
+            "label": "Yes",
+            "targetId": "node-6e4b7680-0707-4c3f-88a9-0e4b0addc24c"
+          },
+          {
+            "id": "outcome-f3891e99-4c13-49af-8d4c-70a2fb541d74",
+            "label": "No",
+            "targetId": "node-cb29b089-b725-4755-b1ce-4a4baab7e3f7"
+          },
+          {
+            "id": "outcome-782b24b6-c510-44f3-9163-3f08680a9e90",
+            "label": "Who's this",
+            "targetId": "node-6539cdd6-5fe8-44a0-a96e-710d4b151ce0"
+          }
+        ]
+      },
+      "measured": {
+        "width": 260,
+        "height": 175
+      },
+      "selected": false
+    },
+    {
+      "id": "node-6e4b7680-0707-4c3f-88a9-0e4b0addc24c",
+      "type": "conversation",
+      "position": {
+        "x": 275.9822799321891,
+        "y": -227.28831244660313
+      },
+      "data": {
+        "title": "If it's a good time?",
+        "question": "",
+        "script": "Hi Dr. X, this is Ayush with Cynet Locums.\nDid I catch you at a good time?",
+        "end": false,
+        "outcomes": [
+          {
+            "id": "outcome-04af2276-222b-4b41-85cb-59d07817cb87",
+            "label": "Yes",
+            "targetId": "node-e139332e-0166-4ad7-8d7c-4c6c83c71810"
+          },
+          {
+            "id": "outcome-7d94b303-fd04-4d7a-9966-ee8772d84b1a",
+            "label": "No",
+            "targetId": "node-a9848885-c5c6-45ad-af7d-5b1fb1489836"
+          }
+        ]
+      },
+      "measured": {
+        "width": 260,
+        "height": 159
+      }
+    },
+    {
+      "id": "node-cb29b089-b725-4755-b1ce-4a4baab7e3f7",
+      "type": "conversation",
+      "position": {
+        "x": 257.1400737216262,
+        "y": 164.0870916124933
+      },
+      "data": {
+        "title": "Wrong Number!",
+        "question": "",
+        "script": "Oh, I’m sorry about that. I must have the wrong number. I appreciate your time. Have a great day.",
+        "end": false,
+        "outcomes": []
+      },
+      "measured": {
+        "width": 260,
+        "height": 99
+      },
+      "selected": false,
+      "dragging": false
+    },
+    {
+      "id": "node-a9848885-c5c6-45ad-af7d-5b1fb1489836",
+      "type": "conversation",
+      "position": {
+        "x": 674.764478781435,
+        "y": -12.360596884524185
+      },
+      "data": {
+        "title": "Schedule?",
+        "question": "",
+        "script": "Absolutely, no problem. When would be a better time for me to give you a quick call?",
+        "end": true,
+        "outcomes": [
+          {
+            "id": "outcome-6b062750-cdb2-4e17-b879-ba0fb1ae5f4d",
+            "label": "Time",
+            "targetId": "node-a6cf6357-f288-4aac-aadc-d381df6f5639"
+          }
+        ]
+      },
+      "measured": {
+        "width": 260,
+        "height": 129
+      },
+      "selected": false,
+      "dragging": false
+    },
+    {
+      "id": "node-e139332e-0166-4ad7-8d7c-4c6c83c71810",
+      "type": "conversation",
+      "position": {
+        "x": 675.5244706825639,
+        "y": -439.2692553279597
+      },
+      "data": {
+        "title": "Locums' Availability?",
+        "question": "",
+        "script": "Perfect, I’ll be brief.\nI’m a physician recruiter, and I was reaching out to see if you’re currently available to consider locum opportunities.",
+        "end": false,
+        "outcomes": [
+          {
+            "id": "outcome-880a41a7-54fd-49dd-b314-7dc0609d9173",
+            "label": "No",
+            "targetId": "node-29c988da-33fb-4ac0-9052-8e25471cd053"
+          },
+          {
+            "id": "outcome-689dd4bc-2dbe-4b88-8040-9dba6fd4ac50",
+            "label": "Maybe",
+            "targetId": "node-44915fe1-0cd4-4e91-a656-055d15f05650"
+          },
+          {
+            "id": "outcome-36a24cfa-8fd4-4fdc-88a8-96396986e947",
+            "label": "Yes",
+            "targetId": "node-d729fed5-0217-4a74-a515-75bf49b32225"
+          }
+        ]
+      },
+      "measured": {
+        "width": 260,
+        "height": 204
+      }
+    },
+    {
+      "id": "node-29c988da-33fb-4ac0-9052-8e25471cd053",
+      "type": "conversation",
+      "position": {
+        "x": 1063.9401190980834,
+        "y": -731.6938198251758
+      },
+      "data": {
+        "title": "Future Availability?",
+        "question": "",
+        "script": "No problem at all. May I ask if you have any availability coming up in the future?",
+        "end": false,
+        "outcomes": [
+          {
+            "id": "outcome-13188562-8e23-4708-92d6-7e03aa604f9a",
+            "label": "No",
+            "targetId": "node-8f9d5b2c-2ff7-4ba1-a298-17972fa6c3c9"
+          },
+          {
+            "id": "outcome-cbc617d2-ce04-4674-863f-430681136df1",
+            "label": "Yes",
+            "targetId": "node-4cb242b4-2636-45e6-8c6a-a50e640e76a4"
+          }
+        ]
+      },
+      "measured": {
+        "width": 260,
+        "height": 159
+      }
+    },
+    {
+      "id": "node-44915fe1-0cd4-4e91-a656-055d15f05650",
+      "type": "conversation",
+      "position": {
+        "x": 1063.7492055490131,
+        "y": -340.8734469669324
+      },
+      "data": {
+        "title": "Okay to Follow Up?",
+        "question": "",
+        "script": "Would it be okay if I followed up with you at a later time when you’re looking for locum opportunities?",
+        "end": false,
+        "outcomes": []
+      },
+      "measured": {
+        "width": 260,
+        "height": 99
+      }
+    },
+    {
+      "id": "node-6539cdd6-5fe8-44a0-a96e-710d4b151ce0",
+      "type": "conversation",
+      "position": {
+        "x": 272.50944018760305,
+        "y": 595.8020178973302
+      },
+      "data": {
+        "title": "Apologies",
+        "question": "",
+        "script": "I’m trying to reach Dr. X. I’m sorry, I may have the wrong number.",
+        "end": false,
+        "outcomes": []
+      },
+      "measured": {
+        "width": 260,
+        "height": 99
+      }
+    },
+    {
+      "id": "node-a6cf6357-f288-4aac-aadc-d381df6f5639",
+      "type": "conversation",
+      "position": {
+        "x": 991.9613081780842,
+        "y": 42.760309540535715
+      },
+      "data": {
+        "title": "Time?",
+        "question": "",
+        "script": "What time should I give a call back?",
+        "end": true,
+        "outcomes": []
+      },
+      "measured": {
+        "width": 260,
+        "height": 85
+      }
+    },
+    {
+      "id": "node-8f9d5b2c-2ff7-4ba1-a298-17972fa6c3c9",
+      "type": "conversation",
+      "position": {
+        "x": 1537.6439271677182,
+        "y": -1152.5440269040932
+      },
+      "data": {
+        "title": "Not Interested!",
+        "question": "",
+        "script": "Totally understand. Just so I can update my notes correctly, is locum work something you wouldn't consider at all, or is it mainly that you don't have the availability right now?",
+        "end": false,
+        "outcomes": []
+      },
+      "measured": {
+        "width": 260,
+        "height": 128
+      }
+    },
+    {
+      "id": "node-4cb242b4-2636-45e6-8c6a-a50e640e76a4",
+      "type": "conversation",
+      "position": {
+        "x": 1475.0752715479914,
+        "y": -692.8401179620873
+      },
+      "data": {
+        "title": "Available in Future",
+        "question": "",
+        "script": "Great. And just so I can line this up correctly, are you looking to actually work some shifts within the next couple of months, or are you thinking you’ll start exploring opportunities around that time?",
+        "end": false,
+        "outcomes": [
+          {
+            "id": "outcome-d6aa4bad-3dfa-46fc-b34f-e943c0e6c8fa",
+            "label": "Explore Later.",
+            "targetId": "node-48afb7ee-c92a-41e9-ae8d-20bf79e9167b"
+          },
+          {
+            "id": "outcome-4f731e01-aebe-405d-9438-6e39919603ec",
+            "label": "Work Later.",
+            "targetId": "node-036fae6b-0696-4715-a08b-15e636c43859"
+          }
+        ]
+      },
+      "measured": {
+        "width": 260,
+        "height": 188
+      }
+    },
+    {
+      "id": "node-48afb7ee-c92a-41e9-ae8d-20bf79e9167b",
+      "type": "conversation",
+      "position": {
+        "x": 1866.5690011988283,
+        "y": -797.8805378445196
+      },
+      "data": {
+        "title": "Explore in 3–4 Months",
+        "question": "",
+        "script": "Absolutely. In that case, we can either reconnect closer to then, or if you already know what locations you’d consider, I can keep you in mind for those.\n\nOR\n\nI'll keep you updated once a month about current openings.",
+        "end": false,
+        "outcomes": [
+          {
+            "id": "outcome-3076c0f0-34b8-495d-9029-01df3183d47f",
+            "label": "Get Email and Locations",
+            "targetId": "node-974caad6-2b01-4f4d-a241-117bdf9f11f4"
+          }
+        ]
+      },
+      "measured": {
+        "width": 260,
+        "height": 173
+      }
+    },
+    {
+      "id": "node-036fae6b-0696-4715-a08b-15e636c43859",
+      "type": "conversation",
+      "position": {
+        "x": 1863.886442573709,
+        "y": -500.42918340444237
+      },
+      "data": {
+        "title": "Can Work Within the Next 1–2 Months",
+        "question": "",
+        "script": "Perfect. It's the best time to submit your profile to the jobs so you'll have an offer by then. Our credentialing process can take around 60 to 90 days.",
+        "end": false,
+        "outcomes": [
+          {
+            "id": "outcome-6275cb68-786f-4b00-bf81-06a9779afe74",
+            "label": "No Commitment!",
+            "targetId": "node-3a0863cd-f16d-4ba7-a716-4f121913e3bb"
+          },
+          {
+            "id": "outcome-e6d92982-1e17-450b-a2fa-4543d7a20edb",
+            "label": "Cool",
+            "targetId": "node-b6b4352d-a233-4c84-9d65-fcf3272f0e83"
+          }
+        ]
+      },
+      "measured": {
+        "width": 260,
+        "height": 207
+      }
+    },
+    {
+      "id": "node-974caad6-2b01-4f4d-a241-117bdf9f11f4",
+      "type": "conversation",
+      "position": {
+        "x": 2806.2503459803143,
+        "y": -717.6204311877607
+      },
+      "data": {
+        "title": "Get Email!",
+        "question": "",
+        "script": "Sure, can you confirm what's the best email for you?\nI’ll send the details over email.\nI’ll stay in touch with you by email and text, and I’ll keep you updated on anything that matches what you’re looking for.",
+        "end": true,
+        "outcomes": []
+      },
+      "measured": {
+        "width": 260,
+        "height": 143
+      }
+    },
+    {
+      "id": "node-3a0863cd-f16d-4ba7-a716-4f121913e3bb",
+      "type": "conversation",
+      "position": {
+        "x": 2295.532631436319,
+        "y": -422.86600240822565
+      },
+      "data": {
+        "title": "You Aren't Committing",
+        "question": "",
+        "script": "I understand, but submitting your profile doesn't necessarily mean you're committing to the assignment. It just gives us a chance to get the process moving while you’re figuring out your schedule.",
+        "end": false,
+        "outcomes": []
+      },
+      "measured": {
+        "width": 260,
+        "height": 143
+      }
+    },
+    {
+      "id": "node-b6b4352d-a233-4c84-9d65-fcf3272f0e83",
+      "type": "conversation",
+      "position": {
+        "x": 2231.4497511629543,
+        "y": -191.9868781273458
+      },
+      "data": {
+        "title": "Cool!",
+        "question": "",
+        "script": "Perfect. Let me get a couple of quick details from you, and then I can send over the opportunities we have.",
+        "end": false,
+        "outcomes": [
+          {
+            "id": "outcome-6a2b1fe9-41f1-4849-85c7-ead4f98931e1",
+            "label": "LOC & EMAIL!",
+            "targetId": "node-974caad6-2b01-4f4d-a241-117bdf9f11f4"
+          }
+        ]
+      },
+      "measured": {
+        "width": 260,
+        "height": 144
+      }
+    },
+    {
+      "id": "node-d729fed5-0217-4a74-a515-75bf49b32225",
+      "type": "conversation",
+      "position": {
+        "x": 1068.28948691471,
+        "y": -130.03269978156448
+      },
+      "data": {
+        "title": "Get Location Preference",
+        "question": "",
+        "script": "Perfect. I see you’re currently licensed in X. Are you mainly looking to work in Florida, or would you be open to other states as well?",
+        "end": false,
+        "outcomes": [
+          {
+            "id": "outcome-bd6ce59c-3206-406c-a65a-7fd44242e827",
+            "label": "Get Email!",
+            "targetId": "node-ff19a104-fbfc-417c-b097-f93fdaa33dab"
+          }
+        ]
+      },
+      "measured": {
+        "width": 260,
+        "height": 144
+      }
+    },
+    {
+      "id": "node-ff19a104-fbfc-417c-b097-f93fdaa33dab",
+      "type": "conversation",
+      "position": {
+        "x": 1437.5260426808852,
+        "y": -74.61336496473334
+      },
+      "data": {
+        "title": "Get Email!",
+        "question": "",
+        "script": "Perfect. Could you confirm the best email address for you? I can send over some available opportunities that match your preferences for you to review.",
+        "end": false,
+        "outcomes": [
+          {
+            "id": "outcome-e5f0e138-e2a2-4b6d-aa71-59c5d37e6399",
+            "label": "ALSOOOO",
+            "targetId": "node-47419f45-3a96-46f5-87a7-85167a2cb12b"
+          }
+        ]
+      },
+      "measured": {
+        "width": 260,
+        "height": 158
+      }
+    },
+    {
+      "id": "node-47419f45-3a96-46f5-87a7-85167a2cb12b",
+      "type": "conversation",
+      "position": {
+        "x": 1797.5260426808852,
+        "y": -74.61336496473334
+      },
+      "data": {
+        "title": "HCA?",
+        "question": "",
+        "script": "Since the major jobs that we have are with HCA, by any chance have you worked with HCA or been submitted to HCA within the last 12 months?",
+        "end": false,
+        "outcomes": [
+          {
+            "id": "outcome-527011bb-2dcf-4726-ad45-7270664d6d32",
+            "label": "Yes",
+            "targetId": "node-57809727-b495-48ef-a4f3-a658a3aca9d7"
+          },
+          {
+            "id": "outcome-71542a76-4c26-4227-ba08-97cf4bc95b77",
+            "label": "No",
+            "targetId": "node-d87e8e31-57af-4b82-a748-2f0215c1a4bb"
+          }
+        ]
+      },
+      "measured": {
+        "width": 260,
+        "height": 174
+      }
+    },
+    {
+      "id": "node-57809727-b495-48ef-a4f3-a658a3aca9d7",
+      "type": "conversation",
+      "position": {
+        "x": 2157.8338513023887,
+        "y": -9.12174804715756
+      },
+      "data": {
+        "title": "Pitch Non-HCA Jobs!",
+        "question": "",
+        "script": "No worries, I can keep an eye out for non-HCA opportunities that match what you’re looking for and reach out when something relevant comes up.",
+        "end": false,
+        "outcomes": []
+      },
+      "measured": {
+        "width": 260,
+        "height": 114
+      }
+    },
+    {
+      "id": "node-d87e8e31-57af-4b82-a748-2f0215c1a4bb",
+      "type": "conversation",
+      "position": {
+        "x": 2160.165058614078,
+        "y": 154.55711303105397
+      },
+      "data": {
+        "title": "Shift Confirmation!",
+        "question": "",
+        "script": "How many shifts in a month are you willing to cover?",
+        "end": false,
+        "outcomes": [
+          {
+            "id": "outcome-a56d6beb-f984-4aaa-b37c-e4b6ae1d2b44",
+            "label": "Ask Malpractice History?",
+            "targetId": "node-b3ea86d0-d8e1-4e9c-9ba6-0ec0be3c1d4b"
+          }
+        ]
+      },
+      "measured": {
+        "width": 260,
+        "height": 129
+      }
+    },
+    {
+      "id": "node-b3ea86d0-d8e1-4e9c-9ba6-0ec0be3c1d4b",
+      "type": "conversation",
+      "position": {
+        "x": 2586.1404569439005,
+        "y": 221.85201932747316
+      },
+      "data": {
+        "title": "Malpractice?",
+        "question": "",
+        "script": "Just one last question, Doctor. Do you have any malpractice history?",
+        "end": false,
+        "outcomes": [
+          {
+            "id": "outcome-c07c39ab-2ab8-4b3d-af71-70131eb50e5f",
+            "label": "Yes",
+            "targetId": "node-9c6f4a80-86a5-422d-9a6d-987c4c4347c0"
+          },
+          {
+            "id": "outcome-d2bd3aad-587c-4166-8890-b36b11d065d6",
+            "label": "No",
+            "targetId": "node-d717edba-5ee0-48fb-9c06-94b8cb581c00"
+          }
+        ]
+      },
+      "measured": {
+        "width": 260,
+        "height": 159
+      }
+    },
+    {
+      "id": "node-9c6f4a80-86a5-422d-9a6d-987c4c4347c0",
+      "type": "conversation",
+      "position": {
+        "x": 2942.181933044111,
+        "y": 283.44498556551065
+      },
+      "data": {
+        "title": "How Old?",
+        "question": "",
+        "script": "Got it. Do you remember roughly when that was?",
+        "end": false,
+        "outcomes": []
+      },
+      "measured": {
+        "width": 260,
+        "height": 85
+      }
+    },
+    {
+      "id": "node-d717edba-5ee0-48fb-9c06-94b8cb581c00",
+      "type": "conversation",
+      "position": {
+        "x": 2944.8209489773044,
+        "y": 403.52021052578806
+      },
+      "data": {
+        "title": "Great!",
+        "question": "",
+        "script": "That's great.\nAll right. Thanks for letting me know.",
+        "end": false,
+        "outcomes": [
+          {
+            "id": "outcome-83cb51e9-b3ce-435c-8a85-20f7df138df7",
+            "label": "Proceed!",
+            "targetId": "node-11bf7afc-28e2-4ef4-a495-0cbaa6d8a29e"
+          }
+        ]
+      },
+      "measured": {
+        "width": 260,
+        "height": 115
+      }
+    },
+    {
+      "id": "node-11bf7afc-28e2-4ef4-a495-0cbaa6d8a29e",
+      "type": "conversation",
+      "position": {
+        "x": 3317.8080087221847,
+        "y": 434.5413115211769
+      },
+      "data": {
+        "title": "Preference for Communication & Time?",
+        "question": "",
+        "script": "Since I’m sure your schedule is pretty busy, what would be the best way and time to reach you going forward? Would you prefer a call, text, or email?",
+        "end": false,
+        "outcomes": [
+          {
+            "id": "outcome-5619baf9-d6a1-40dd-9074-3920da01975e",
+            "label": "Closure!",
+            "targetId": "node-73ec29a9-daf5-484b-b417-4f1b79d0ee28"
+          }
+        ]
+      },
+      "measured": {
+        "width": 260,
+        "height": 163
+      }
+    },
+    {
+      "id": "node-73ec29a9-daf5-484b-b417-4f1b79d0ee28",
+      "type": "conversation",
+      "position": {
+        "x": 3677.8080087221847,
+        "y": 434.5413115211769
+      },
+      "data": {
+        "title": "HANG UP!!",
+        "question": "",
+        "script": "Perfect, Doctor. I’ll keep in touch with you from here. Have a great day!",
+        "end": true,
+        "outcomes": []
+      },
+      "measured": {
+        "width": 260,
+        "height": 99
+      }
+    }
+  ],
+  "selectedId": "node-6e4b7680-0707-4c3f-88a9-0e4b0addc24c",
+  "history": [
+    {
+      "nodeId": "node-6e4b7680-0707-4c3f-88a9-0e4b0addc24c",
+      "via": "Yes",
+      "from": "root"
+    }
+  ],
+  "viewport": {
+    "x": 0,
+    "y": 0,
+    "zoom": 1
+  }
+}
