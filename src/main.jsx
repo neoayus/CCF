@@ -45,6 +45,73 @@ function clone(value) {
   return JSON.parse(JSON.stringify(value));
 }
 
+/*
+ * Find a navigable path from the Introduction node to any
+ * node in the flow. This lets Call Mode jump directly to a
+ * node clicked in the canvas while keeping the breadcrumb /
+ * Back button meaningful.
+ */
+function findPathToNode(nodes, targetId) {
+  if (targetId === ROOT_ID) {
+    return [];
+  }
+
+  const queue = [ROOT_ID];
+  const visited = new Set([ROOT_ID]);
+  const parent = new Map();
+
+  while (queue.length) {
+    const nodeId = queue.shift();
+    const node = nodes.find((item) => item.id === nodeId);
+
+    if (!node) {
+      continue;
+    }
+
+    for (const outcome of node.data?.outcomes || []) {
+      const nextId = outcome.targetId;
+
+      if (!nextId || visited.has(nextId)) {
+        continue;
+      }
+
+      parent.set(nextId, {
+        nodeId,
+        outcomeId: outcome.id,
+        via: outcome.label || 'Response',
+      });
+
+      if (nextId === targetId) {
+        const path = [];
+        let cursor = targetId;
+
+        while (cursor !== ROOT_ID) {
+          const step = parent.get(cursor);
+
+          if (!step) {
+            return null;
+          }
+
+          path.unshift({
+            nodeId: cursor,
+            via: step.via,
+            from: step.nodeId,
+          });
+
+          cursor = step.nodeId;
+        }
+
+        return path;
+      }
+
+      visited.add(nextId);
+      queue.push(nextId);
+    }
+  }
+
+  return null;
+}
+
 /* -------------------------------------------------------
    Starter flow
 ------------------------------------------------------- */
@@ -277,12 +344,51 @@ function App() {
      Select node
   ----------------------------------------------------- */
 
-  const selectNode = useCallback((id) => {
-    setFlow((previous) => ({
-      ...previous,
-      selectedId: id,
-    }));
-  }, []);
+  const selectNode = useCallback(
+    (id) => {
+      setFlow((previous) => {
+        // In Call Mode, clicking a node is navigation, not
+        // merely selection. Reconstruct the path so the call
+        // panel, breadcrumbs, Back button, and next branches
+        // all continue from the clicked node.
+        if (callMode) {
+          const path = findPathToNode(
+            previous.nodes,
+            id
+          );
+
+          if (path === null) {
+            // The node may be intentionally unconnected. It is
+            // still useful as a manual jump point during a call.
+            return {
+              ...previous,
+              selectedId: id,
+              history: [
+                {
+                  nodeId: id,
+                  via: "Direct navigation",
+                  from: null,
+                },
+              ],
+            };
+          }
+
+          return {
+            ...previous,
+            selectedId: id,
+            history: path,
+          };
+        }
+
+        return {
+          ...previous,
+          selectedId: id,
+        };
+      });
+    },
+    [callMode]
+  );
+
 
   /* -----------------------------------------------------
      Add node
@@ -1042,7 +1148,7 @@ function FlowCanvas({
   fitNonce,
   traversalActive,
 }) {
-  const { fitView } =
+  const { fitView, setCenter } =
     useReactFlow();
 
   const nodeMap = useMemo(
@@ -1190,6 +1296,43 @@ function FlowCanvas({
       traversalActive,
     ]
   );
+
+  useEffect(() => {
+    if (!traversalActive || !currentId) {
+      return;
+    }
+
+    const currentNode = nodeMap[currentId];
+
+    if (!currentNode) {
+      return;
+    }
+
+    // Keep the active conversation step visible while the
+    // recruiter moves through the call. A small delay lets
+    // React Flow apply the node update before centering it.
+    const timer = window.setTimeout(() => {
+      const width = currentNode.measured?.width || 260;
+      const height = currentNode.measured?.height || 140;
+
+      setCenter(
+        currentNode.position.x + width / 2,
+        currentNode.position.y + height / 2,
+        {
+          zoom: 0.9,
+          duration: 350,
+        }
+      );
+    }, 0);
+
+    return () =>
+      window.clearTimeout(timer);
+  }, [
+    currentId,
+    nodeMap,
+    traversalActive,
+    setCenter,
+  ]);
 
   useEffect(() => {
     if (!fitNonce) {
